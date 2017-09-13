@@ -47,20 +47,30 @@ that kind of app might have information about materials costs, % completion,
 or the factory and assembly line on which the laptop was built.
 
 Take a look at each of the app descriptions below. For each description,
-create a rough data model for the app by listing at least two relevant
-entities/abstractions (e.g. Laptop, above) that the app might use, and giving
-them each several properties that make sense for that use case.
+create a rough data model for the app by listing at least two relevant entities/abstractions (e.g. Laptop, above) that the app might use, and giving them each several properties that make sense for that use case.
 Please also give a short explanation (1 - 2 sentences) of why these choices make
 sense for the use case of the app.
 
 ### 1. To-Do List
 
-This app will be an app for tracking and managing tasks. Not only will it keep
-track of whether tasks have been completed, it will also keep track of
-how long each task took to complete. Tasks can be grouped into 'projects' to
+This app will be an app for tracking and managing tasks. Not only will it keep track of whether tasks have been completed, it will also keep track of how long each task took to complete. Tasks can be grouped into 'projects' to
 keep them organized.
 
 > Answer here
+You should have a main group of projects with the properities of names, descriptions, and tasks.
+Then each task in a project should be given a name, and a beginning and end time.
+
+let project = {
+  name: That big thing
+  description: a big thing to do
+  tasktitles: the little things I should do to do the Big thing
+};
+
+let task = {
+  name: name of a task
+  timeStarted: 10:30am "timer function or date function?""
+  timeEnded: 11:30am
+}
 
 ### 2. Photo Sharing App
 
@@ -68,14 +78,36 @@ In this app, users can upload photos to their accounts and share them with other
 
 > Answer here
 
+This is probably best done by having a user profile, then albums associated with the profile, and specific images within the profile.
+
+let photo = {
+  name: that photo
+  date: that date
+  url: image/image.gif
+};
+
+let album = {
+  name: Album name
+  images: [img1, img2, img3]
+};
+
+let user = {
+  username: picturePerson
+  imagesUploaded: [img1, img2, etc]
+  albums: [album1, album2, etc]
+}
+
 ### 3. Home Automation Manager
 
-This app will be a tool for managing a home automation system; it will keep
-track of the time and temperature of the house that it monitors, and use that
-information to turn on and off different lights and adjust the thermostat up
-and down.
+This app will be a tool for managing a home automation system; it will keep track of the time and temperature of the house that it monitors, and use that information to turn on and off different lights and adjust the thermostat up and down.
 
 > Answer here
+This seems like just two functions at first but its more like a couple of functions each under two headings.
+
+Lights has brightness, and which sets of lights are on/of.
+Temperature is on/off and temperature up/down.
+
+
 
 ### 4. Sneaker Store
 
