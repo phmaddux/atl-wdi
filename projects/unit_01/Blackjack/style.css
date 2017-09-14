@@ -16,3 +16,8 @@ button {
 body {
     background: #01B001;
 }
+
+img {
+    height: 100 px;
+    width: 50 px;
+}
