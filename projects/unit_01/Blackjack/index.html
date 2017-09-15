@@ -11,21 +11,28 @@
     <h1>Blackjack</h1>
     <h4>Dealer's Hand</h4>
     <div>
+        <img class="card" src="images/Card_Back.jpg" alt="Card Back">
+        <img class="card" src="images/Clubs_Ace.jpg" alt="Ace of Clubs">        
     </div>
     <!-- Dealer's hand visual  -->
     <h4>Player Hand</h4>
     <div>
+        <img class="card" src="images/Hearts_Ace.jpg" alt="Ace of Hearts">
+        <img class="card" src="images/Spades_King.jpg" alt="King of Spades">
     </div>
     <!-- Your Hand -->
     <h5>
-        <button>Hit</button>
-        <button>Stay</button>
+        <button type="button" class="success" id="hit">Hit</button>
+        <button type="button" class="danger" id="stay">Stay</button>
     </h5>
     <!-- <div></div> -->
     <!-- Betting & Winnings -->
-    <!-- <h6></h6> -->
-    <!-- New hand, Rules, New Game -->
+    <h6>
+        <button type="button" class="primary" id="newHand">New Hand</button>
+        <button type="button" class="info" id="rules">Rules</button>
+   </h6>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="app.js"></script>
+    <script src="Deck.js"></script>
+    
 </body>
 </html>

@@ -1,10 +1,12 @@
 h1 {
     font-size: 45px;
+    padding-bottom: 10 px;
     color: black;
 }
 
 h4 {
     font-size: 25px;
+    border-bottom: 100 px;
     color: black;
 }
 
@@ -13,11 +15,12 @@ button {
 
 }
 
+.card {
+    height:200 px;
+    width: 100px;
+}
+
 body {
     background: #01B001;
 }
 
-img {
-    height: 100 px;
-    width: 50 px;
-}
