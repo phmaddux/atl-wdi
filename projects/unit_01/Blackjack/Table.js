@@ -17,12 +17,20 @@
 //     message = "Player wins!";
 // }
 // else if (playerScore < dealerScore) {
-//     message = "Player loses.";
-// }
-// return message;
-
-
-
+    //     message = "Player loses.";
+    // }
+    // return message;
+    
+    function addCardToDom(cardPlacement, card) {
+        // make image html from card values
+        var oImg = document.createElement("img");
+        oImg.setAttribute('src', 'images/' + card.suit + '_' + card.value + '.jpg');
+        oImg.setAttribute('alt', 'Hole Card')
+        oImg.setAttribute('class', 'card');
+        // attach to the dom
+        document.getElementById(cardPlacement).appendChild(oImg);
+    }
+    
 document.getElementById("newHand")
     .addEventListener("click",function( e ) {
         // This deletes all objects with the class of card
@@ -37,48 +45,42 @@ document.getElementById("newHand")
         const deck = new Deck();
         // Create Dealer's hand
         const dealerHand = []
-        
-        
         for (var i = 0; i < 2; i++) {            
             const card = deck.getCard();
+            // Pushes to Dealer's Hand
             dealerHand.push(card);
-            // make image html from card values
-            // attach to the dom
-            var oImg = document.createElement("img");
-            oImg.setAttribute('src', 'images/Card_Back.jpg',);
-            oImg.setAttribute('alt', 'Hole Card')
-            oImg.setAttribute('class', 'card');
-            document.body.appendChild(oImg);
+            addCardToDom('dealerHand', card);
         }
-        // Pushes to Dealer's Hand
-
-        
         
         // Create Player's hand
         const playerHand = [];
         // Pushes to Player's Hand
-
+        
     });
 
-// when new hand is pressed
-    // clear board
-    // new card array
-    // shuffle new card array
-    // deal two cards to the dealer
-    // deal two cards to the player
-        // wait
+    // when new hand is pressed
+        // clear board
+        // new card array
+        // shuffle new card array
+        // deal two cards to the dealer
+        // deal two cards to the player
+            // wait
+    
+    // when Hit is pressed
+        // a card is pushed from the card array to the dealer/player
+    
+    // when stand is pressed the turn is ended
+        // dealer's tun
+        // scoring
+            // converting strings like ace into 11s and 1s and J,Q,K into 10s
+        // flip dealer's holecard
+    
+    // when Rules is pressed
+        // alert function with the rules pops up.
+        
+        
 
-// when Hit is pressed
-    // a card is pushed from the card array to the dealer/player
 
-// when stand is pressed the turn is ended
-    // dealer's tun
-    // scoring
-        // converting strings like ace into 11s and 1s and J,Q,K into 10s
-    // flip dealer's holecard
-
-// when Rules is pressed
-    // alert function with the rules pops up.
 
 
 

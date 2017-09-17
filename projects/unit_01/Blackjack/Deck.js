@@ -5,7 +5,7 @@
     createDeck(){
         var deck = [];
         // placeholding values until I can find a way to make "Jack" = 10, etc
-        var values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+        var values = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"];
         var suits = ["Hearts", "Spades", "Diamonds", "Clubs"];
         values.forEach(function(value) {
             suits.forEach(function(suit) {
