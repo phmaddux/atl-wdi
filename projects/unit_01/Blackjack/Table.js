@@ -32,11 +32,18 @@ function score() {
         // return message;
 }
 
-function addCardToDom(cardPlacement, card) {
+function addCardToDom(cardPlacement, card, isHole) {
     // make image html from card values
+        // logic for hole card
     var oImg = document.createElement("img");
-    oImg.setAttribute('src', 'images/' + card.suit + '_' + card.value + '.jpg');
-    oImg.setAttribute('alt', 'Hole Card')
+    if (isHole === true) {
+        oImg.setAttribute('src', 'images/' + 'Card_Back.jpg');
+        oImg.setAttribute('alt', 'Hole Card')        
+    }
+    else {
+        oImg.setAttribute('src', 'images/' + card.suit + '_' + card.value + '.jpg');
+        oImg.setAttribute('alt', card.value + " of " + card.suit)
+    }
     oImg.setAttribute('class', 'card');
     // attach to the dom
     document.getElementById(cardPlacement).appendChild(oImg);
@@ -56,17 +63,23 @@ document.getElementById("newHand").addEventListener("click", function( e ) {
     playerHand = []
     dealerHand = []
     // Create Dealer's hand
-    for (var i = 0; i < 2; i++) {            
-        const card = deck.getCard();
+        var card = deck.getCard();
         // Pushes to Dealer's Hand
         dealerHand.push(card);
-        addCardToDom('dealerHand', card);
-    }
+        addCardToDom('dealerHand', card, true);
+        card = deck.getCard();
+        // Pushes to Dealer's Hand
+        dealerHand.push(card);
+        addCardToDom('dealerHand', card, false);
+    
     
     // Create Player's hand
-    
-    // Pushes to Player's Hand
-    
+    for (var i = 0; i < 2; i++) {            
+        card = deck.getCard();
+        // Pushes to Player's Hand
+        playerHand.push(card);
+        addCardToDom('playerHand', card, false);
+    }
     // when new hand is pressed
         // clear board
         // new card array
@@ -79,7 +92,7 @@ document.getElementById("newHand").addEventListener("click", function( e ) {
 document.getElementById("hitPlayer").addEventListener("click", function( e ) {
     // when Hit is pressed
     var card = deck.getCard();
-    addCardToDom("playerHand", card);
+    addCardToDom("playerHand", card, false);
         // a card is pushed from the card array to the dealer/player
         // call bust function
 });
