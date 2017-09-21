@@ -3,12 +3,12 @@ var playerHand = []
 var dealerHand = []
 
 function bust() {
-    // if (playerScore > 21) {
-    //     message = "Bust. Player loses...";
-    // }
-    // else if (dealerScore > 21) {
-    //     message = "Dealer busts! Player wins!";
-    // }
+    if (playerScore > 21) {
+        message = "Bust. Player loses...";
+    }
+    else if (dealerScore > 21) {
+        message = "Dealer busts! Player wins!";
+    }
 }
 function score() {
 // scoring
@@ -94,12 +94,14 @@ document.getElementById("hitPlayer").addEventListener("click", function( e ) {
     var card = deck.getCard();
     addCardToDom("playerHand", card, false);
         // a card is pushed from the card array to the dealer/player
+    bust()    
         // call bust function
 });
 
 document.getElementById("standPlayer").addEventListener("click", function( e ) {
     // when stand is pressed the turn is ended
-        // dealer's tun
+    // if (dealerScore)
+    // dealer's tun
             // call score
 });
 
