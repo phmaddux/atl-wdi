@@ -16,7 +16,7 @@ class Tamagotchi {
     }
     puke(){
         this.health--;
-        console.log(this.name + " is feeling i'll... *VOMITS EVERYWHERE*")
+        console.log(this.name + " is feeling ill... *VOMITS EVERYWHERE*")
         console.log(this.name + " has " + this.health + " health remaining.")
     }
     yawn(){
@@ -24,6 +24,26 @@ class Tamagotchi {
         console.log(this.name + " is so, so tired.")
         console.log(this.name + " has " + this.restedness + " restedness remaining.")
     }
+    start(){
+        console.log('Starting ' + this.name);
+        var self = this
+        this.hungerTimer = setInterval(() => {
+            self.cry();
+        }, 6000)
+        this.yawnTime = setInterval(() => {
+            self.yawn();
+        }, 10000)
+        this.sickTimer = setInterval(() => {
+            self.puke();
+        }, 25000)
+    }
+    stop(){
+        console.log("Stopping" + this.name);
+        clearInterval(this.yawnTimer);
+        clearInterval(this.sickTimer);
+        clearInterval(this.hungerTimer);
+    }
+    
 }
 
 //create new Tamagotchis
@@ -34,11 +54,5 @@ var Stephen = new Tamagotchi('Stephen', 'Tamagotchi')
 console.log(Mandy)
 console.log(Stephen)
 
-Mandy.cry();
-Stephen.cry();
-Mandy.puke();
-Stephen.puke();
-Mandy.yawn();
-Stephen.yawn();
-
-player.feedTamagotchi('Mandy')
+Mandy.start();
+Stephen.start();
