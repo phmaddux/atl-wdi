@@ -1,0 +1,14 @@
+<h1> Todont List </h1>
+<ul>
+  {{#each todont}}
+    <li>Description: {{description}}</li>
+    <li>Urgent: {{this.urgent}}</li>
+    <br>
+    <div><a href="/todont/{{@index}}/edit">Edit</a></div>
+    <form action="/todont/{{@index}}?_method=DELETE" method="POST">
+      <input type="submit" value="DELETE"/>
+    </form>
+  {{/each}}
+</ul>
+
+<a href="/todont/new">Create a todo</a>
