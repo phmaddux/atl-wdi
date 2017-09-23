@@ -11,13 +11,18 @@ class Tamagotchi {
     }
     cry(){
         this.foodInTummy--;
-        console.log("The tamagotchi is crying!!! WAAAA!!!")
+        console.log(this.name + " is crying!!! WAAAA!!!")
         console.log(this.name + ' has ' + this.foodInTummy + ' remaining food in their tummy.');
     }
     puke(){
         this.health--;
-        console.log("*VOMIT EVERYWHERE*")
+        console.log(this.name + " is feeling i'll... *VOMITS EVERYWHERE*")
         console.log(this.name + " has " + this.health + " health remaining.")
+    }
+    yawn(){
+        this.restedness--;
+        console.log(this.name + " is so, so tired.")
+        console.log(this.name + " has " + this.restedness + " restedness remaining.")
     }
 }
 
@@ -31,3 +36,9 @@ console.log(Stephen)
 
 Mandy.cry();
 Stephen.cry();
+Mandy.puke();
+Stephen.puke();
+Mandy.yawn();
+Stephen.yawn();
+
+player.feedTamagotchi('Mandy')
