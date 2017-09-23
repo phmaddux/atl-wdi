@@ -8,7 +8,7 @@ const kitchen = require('./kitchen');
 
 //CODE FOR QUESTION 1 HERE
 kitchen.readMenu().then(console.log).catch(console.log);
-or
+// or
 kitchen.readMenu()
   .then((data) => {
     console.log(data)
@@ -30,7 +30,7 @@ kitchen.order('BIG BLUE BUFFALO').then(console.log).catch(console.log);
 //  Make sure that your Promise can be dealt with when it is rejected.
 
 // CODE FOR QUESTION 3 HERE
-kitchen.order('Quesadillas').then(console.log).catch(console.log);;
+kitchen.order('Quesadillas').then(console.log).catch(console.log);
 
 
 // Add A Burger To The Menu
@@ -44,7 +44,7 @@ kitchen.order('Quesadillas').then(console.log).catch(console.log);;
 
 // CODE FOR QUESTION 4 HERE
 const newBurger = {
-  name: "NOT A BURGER",
+  name: "NOT REALLY A BURGER",
   price: 3.25,
   description: `It's a Veggie burger. You shouldn't order this.`
 }
@@ -69,21 +69,21 @@ kitchen.readMenu().then(console.log).catch(console.log);
 // Then console.log `All Food Delivered` when ALL of the promises have been resolved.  
 // This will require you to use a method we haven't covered in class.
 
-// const customers = [
-//   {
-//     name: "Josie",
-//     order: "Holy Guacamole"
-//   }, {
-//     name: "Chris",
-//     order: "Big Blue Buffalo"
-//   }, {
-//     name: "John",
-//     order: "Blue 'Shroom",
-//   }, {
-//     name: "Katelyn",
-//     order: "Fat Elvis"
-//   }
-// ]
+const customers = [
+  {
+    name: "Josie",
+    order: "Holy Guacamole"
+  }, {
+    name: "Chris",
+    order: "Big Blue Buffalo"
+  }, {
+    name: "John",
+    order: "Blue 'Shroom",
+  }, {
+    name: "Katelyn",
+    order: "Fat Elvis"
+  }
+]
 
 // CODE FOR QUESTION 6 HERE
-promise.all
+kitchen.order(Promise.all(customers)).then(console.log).catch(console.log);
