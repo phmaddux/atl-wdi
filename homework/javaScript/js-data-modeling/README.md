@@ -30,7 +30,30 @@ entities/abstractions (e.g. Senior Paws app, above) that the app might use, and 
 This app provides easy access to all your e-mail service providers in one app. The app will let you select one of your email addresses and view your e-mails for that address.
 
 ```
-Write your answer here or in a separate js file.
+const User = ({
+    Name: String,
+    Password: String
+    UserId: String,
+    EmailServices; {
+        type: String,
+        required: true
+    },
+    Username: {
+        type: String,
+        required: true,
+    },
+    Password: {
+      type: string,
+      required: true
+    }
+    Emails:
+})
+const email =
+  {
+    email: 
+  }
+
+
 ```
 
 ### 2. Radio on the Internet app
@@ -39,7 +62,16 @@ This app hosts a ton of radio stations, each featuring their own playlists of so
 
 
 ```
-Write your answer here or in a separate js file.
+Radio Stations:
+Id:
+Popularity:
+Genre:
+Market reach %:
+
+Each Radio Station can have:
+Hosts:
+
+
 ```
 
 ### 3. Rock Concert App
@@ -68,7 +100,8 @@ Write your answer here or in a separate js file.
 Q. When you were creating relationships between the models, what were some thoughts or questions you had to help guide a connection between them?
 
 ```
-Write your answer here or in a separate js file.
+Honestly I am unsure how "deep" to take these, it always seems like a rabbit hole of potential information that could be applied to the groups
+
 ```
 
 ### Reading and Videos for Tomorrow
