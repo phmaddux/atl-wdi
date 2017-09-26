@@ -1,0 +1,23 @@
+{
+  "name": "atl-wdi",
+  "version": "1.0.0",
+  "description": "![ga](http://mobbook.generalassemb.ly/ga_cog.png) # Welcome to WDI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phmaddux/atl-wdi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phmaddux/atl-wdi/issues"
+  },
+  "homepage": "https://github.com/phmaddux/atl-wdi#readme",
+  "dependencies": {
+    "mongoose": "^4.11.13"
+  }
+}
