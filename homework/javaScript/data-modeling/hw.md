@@ -107,6 +107,16 @@ This seems like just two functions at first but its more like a couple of functi
 Lights has brightness, and which sets of lights are on/of.
 Temperature is on/off and temperature up/down.
 
+var  lights = {
+  lightSet: ['kitchen', 'dining room', 'bathroom', 'bedroom']
+  dimmer: '70%'
+  setting: on/off
+}
+var temperature = {
+  temperature: '70 degrees'
+  setting: on/off
+}
+
 
 
 ### 4. Sneaker Store
@@ -116,6 +126,22 @@ case), add those products to a cart, and save that cart as a past order once the
 purchase is complete.
 
 > Answer here
+This can be broken into three pieces an Order, the order specifics, and the products in that order.
+Order = {
+  order specifics = 'items'
+  status = complete/ underway
+  fill by date = "07-03-20xx"
+}
+order specifics ={
+  products = "violin"
+  quantity of products = 32 
+}
+products = {
+  name: "name"
+  description: "Something to buy"
+  rating: "Good"
+  price: 3.50
+}
 
 ## Representing Abstractions in Code
 
@@ -172,6 +198,9 @@ var exampleLine = {
 What are some advantages and disadvantages of choosing these representations? Please give at least one example of each.
 
 > Answer here
+The stations don't appear to in any order which would make the information useless for someone trying to find their way from point A to point B.
+
+Though labeled as they are the stations are easily identifiable, and could be referenced in an array easily.
 
 ### 6. Doctor Appointment App
 
@@ -275,7 +304,7 @@ other? Are there any circumstances in which the other representation might be
 the better choice?
 
 > Answer here
-
+The two approaches seem to eitehr be focused on whether you want to track the appointments through the doctors or the patients. Therefore you would have to chose how you wrote the code based on whether you were pulling up the appointments for the doctors or for the patients.
 ## Tying It Together
 
 ### 7. Tic-Tac-Toe
@@ -285,13 +314,31 @@ You've been tasked with building an in-browser tic-tac-toe game.
 a.  What are some possible entities that your application might use to model its
     data? Please pick at least two, with at least two properties apiece.
 
-  > Answer here
+A game would have
+   a player 1
+   a player 2
+
+Each player would have
+  A username
+  a record of games won
+  a record of games lost
+}
 
 b.  How might those entities be represented in JavaScript code?
 
   > Answer here
+Game = {
+  player x = "Name"
+  player y = "name"
+}
+Player = {
+  name = "Username"
+  gamesWon = "Number"
+  gamesLost = "Number"
+}
 
 c.  Justify your choices in a) and b). Why these entities? Why these
     representations?
 
   > Answer here
+The game itself has to have a way to define the players so that moves can be tracked and the final score of all played games can be tallied.
