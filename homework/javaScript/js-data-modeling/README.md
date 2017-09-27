@@ -62,7 +62,12 @@ This app hosts a ton of radio stations, each featuring their own playlists of so
 
 
 ```
-Radio Stations:
+Radio App:
+StationsById:
+StationsByPopularity:
+StationsByGenre:
+
+Radio Station:
 Id:
 Popularity:
 Genre:
@@ -70,7 +75,12 @@ Market reach %:
 
 Each Radio Station can have:
 Hosts:
+Genre:
+Playlists:
 
+Playlists:
+Songs:
+Genre:
 
 ```
 
