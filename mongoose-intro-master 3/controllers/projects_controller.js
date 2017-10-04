@@ -11,7 +11,7 @@ router.get('/', (request, response) => {
     StudentModel.findById(studentId)
         .then(() => {
 // find all of students projects
-
+// ???
 // display each project in a div
 
         })
