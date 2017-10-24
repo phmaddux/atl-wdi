@@ -7,6 +7,6 @@
       elsif i % 3 == 0
         puts "Fizz"
       else
-    puts i
+    puts "Sorrels"
       end
 end
