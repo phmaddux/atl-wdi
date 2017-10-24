@@ -1,51 +1,62 @@
-# Boolean Skills:
+# # Boolean Skills:
 
-a = true
-b = false
+# a = true
+# b = false
 
-puts a == b 
+# puts a == b 
 
-puts a != b
+# puts a != b
 
-# Nil Skills:
+# # Nil Skills:
 
-n = nil
+# n = nil
 
-puts n.to_s + " was here."
-# Not sure how to get that to show up...
+# puts n.to_s + " was here."
+# # Not sure how to get that to show up...
 
-puts n.nil?
+# puts n.nil?
 
-puts n.class
+# puts n.class
 
-# Integer Skills:
+# # Integer Skills:
 
-d = 100
+# d = 100
 
-puts d
+# puts d
 
-e = 100.0
+# e = 100.0
 
-puts e
+# puts e
 
-d = e
+# d = e
 
-puts d
+# puts d
 
-# Strings Skills:
+# # Strings Skills:
 
-christine = "Hi, I'm Christine"
-likesTo = "long walks on the beach, kinda."
-tims = " and I like "
-puts christine << tims << likesTo
+# christine = "Hi, I'm Christine"
+# likesTo = "long walks on the beach, kinda."
+# tims = " and I like "
+# puts christine << tims << likesTo
 
-g = "2"
-gToNumber = 2
+# g = "2"
+# gToNumber = 2
 
-puts g + gToNumber
-# results in
-# ninja_skills.rb:45:in `+': no implicit conversion of Integer into String (TypeError)
-# from ninja_skills.rb:45:in `<main>'
+# puts g + gToNumber
+# # results in
+# # ninja_skills.rb:45:in `+': no implicit conversion of Integer into String (TypeError)
+# # from ninja_skills.rb:45:in `<main>'
 
-# Strings and Integers cannot be added together properly. I would have to convert the string to an integer. Probably using .oct
+# # Strings and Integers cannot be added together properly. I would have to convert the string to an integer. Probably using .oct
+# puts "---------------------"
+# # Input Output
 
+puts "Give me a number and I'll double it!"
+num = gets.to_i
+puts num * 2
+
+puts "Hi there. What's your name?"
+name = gets.chomp
+puts "And what is your favorite thing to do?"
+hobby = gets.chomp
+puts "So you're #{name} and you like to #{hobby}. I'll try to remember."

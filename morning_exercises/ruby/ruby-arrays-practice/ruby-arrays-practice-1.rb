@@ -19,7 +19,11 @@ people = [
     )
 ]
 
-upper_case_full_names = []
+upper_case_full_names = people.map do |person|
+    full_name = "#{person.first_name} #{person.last_name}"
+    full_name.upcase
+end
+puts upper_case_full_names
 
 
 #   2. Find the first order for each user
@@ -63,7 +67,10 @@ users = [
     )
 ]
 
-first_order_for_each_user = []
+first_order_for_each_user = users.map do |user|
+    user[:orders].first
+end
+puts first_order_for_each_user
 
 
 #   3. Find the average amount spent on coffee, per transaction, for each person
@@ -87,7 +94,7 @@ people = [
         ]
     ),
     OpenStruct.new(
-        name: 'Tim',
+        name: 'Wim',
         transactions: [
             OpenStruct.new(
                 type: 'BIKES',
@@ -104,7 +111,7 @@ people = [
         ]
     ),
     OpenStruct.new(
-        name: 'Tim',
+        name: 'Blim',
         transactions: [
             OpenStruct.new(
                 type: 'COFFEE',
@@ -122,11 +129,39 @@ people = [
     )
 ]
 
-coffee_average_per_person = []
+coffee_average_per_person = people.map do |person|
+    # I need to isolate only the coffee purchases
+    coffee_transaction_amounts_for_user = person.transactions.map do |transaction|
+        transaction.type == 'COFFEE' ? transaction.amount : 0.00
+    end 
+    # I need the total amount each person spen on coffee
+    coffee_transaction_sum = coffee_transaction_amounts_for_user.reduce(:+)
+    # I need the total number of times each person bought coffee
+    number_of_coffee_transactions = person.transactions.count do |transaction|
+        transaction.type === 'COFFEE'
+    end
 
+    OpenStruct.new(
+        name: person.name,
+        coffee_average: coffee_transaction_sum / number_of_coffee_transactions
+    ) 
+end
+  puts coffee_average_per_person
+  
+# or
+# coffee_average_per_person = people.map do |person|
+#     counter = 0
+#     sum = 0
+#     person.transactions.each do |transaction|
+#       if transaction.type == 'COFFEE'
+#         counter += 1
+#         sum += transaction.amount
+#       end
+#     end
+#     sum/counter
+#   end
 
 #   4. Find the most expensive product for each store, with the store name:
-
 # EXAMPLE:
 # {
 #   store_name: 'Best Buy',
@@ -155,13 +190,13 @@ stores = [
         store_name: 'Target',
         products: [
             OpenStruct.new(
+                description: 'Ruby',
+                price: 323.43
+            ),
+            OpenStruct.new(
                 description: 'Silver',
                 price: 654.44
             ),
-            OpenStruct.new(
-                description: 'Ruby',
-                price: 323.43
-            )
         ]
     ),
     OpenStruct.new(
@@ -179,4 +214,11 @@ stores = [
     )
 ]
 
-most_expensive_products_by_store = []
+
+
+most_expensive_products_by_store = stores.map do |store|
+    store.products = store.products.max_by { |product| product.price}
+    store
+end
+
+puts most_expensive_products_by_store
