@@ -17,3 +17,17 @@ puts n.to_s + " was here."
 puts n.nil?
 
 puts n.class
+
+# Integer Skills:
+
+d = 100
+
+puts d
+
+e = 100.0
+
+puts e
+
+d = e
+
+puts d
