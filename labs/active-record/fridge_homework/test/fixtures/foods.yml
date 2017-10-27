@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  weight: MyString
+  vegan: false
+  fridge: one
+
+two:
+  name: MyString
+  weight: MyString
+  vegan: false
+  fridge: two

@@ -6,7 +6,7 @@ We're going to building a fridge management app to keep track of all of our food
 
 Your program should have a menu that allows you to perform the following actions:
 
-* List all Fridges
+* List all Fridges 
 * Add a Fridge
 * Delete a Fridge
 * View all food items in a specific fridge

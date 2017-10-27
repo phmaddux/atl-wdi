@@ -18,7 +18,17 @@ users = [
     }
 ]
 
-first_user = ???
+# I need to sort through the users and note that the users
+    # should be sorted by the 'created at'
+    # .sort automatically sorts by whatever the variable is defined as
+first_user = users.sort do |person1, person2|
+    person1[:created_at] <=> person2[:created_at]
+end
+puts first_user.first
+
+sorted_by_date = users.min_by { |user| user[:created_at]}
+puts sorted_by_date
+puts "-----------------------"
 
 # 2. Find the first customer's account balance
 
@@ -61,7 +71,14 @@ customers = [
     )
 ]
 
-first_customer_account_balance = ???
+first_customer_account_balance = customers.first do |first_customer|
+    credits = first_customer.credits.reduce(:+)
+    debits = first_customer.debits.reduce(:+)
+    credits - debits
+end
+puts first_customer_account_balance
+
+puts "-----------------------"
 
 # 3. Remove hair care products from the database
 
@@ -86,14 +103,17 @@ products = [
     }
 ]
 
-no_hair_care_products = ???
+no_hair_care_products = products.delete_if { |product| product [:category] == "HAIR_CARE" }
+puts products
+puts "-----------------------"
 
-# 4. If any item in the array is a number, change it to a String
-# e.g. [1, 2, 'blah'] ===> ['1', '2', 'blah']
 
-const things = [23, 43, 'strawberry', 'ruby', 234643234, 'another red thing', 1337]
+# # 4. If any item in the array is a number, change it to a String
+# # e.g. [1, 2, 'blah'] ===> ['1', '2', 'blah']
 
-const string_things = ???
+# const things = [23, 43, 'strawberry', 'ruby', 234643234, 'another red thing', 1337]
+
+# const string_things = ???
 
 # 5. Sort customers alphabetically by first and last name:
 
@@ -112,23 +132,29 @@ customers = [
     )
 ]
 
-sorted_customers = ???
+sorted_customers = customers.sort do { |customer1, customer2|} 
+    [customer1.last_name, customer1.first_name] <=> [customer2.last_name, customer2.first_name] 
+end
+puts sorted_customers
 
-# 6. Return all decorations with blue in their description
+sorted_customers2 = customers.sort_by { |a| [a.last_name, a.first_name]}
+puts "--------------"
 
-decorations = [
-    {
-        description: 'Blue birthday hat'
-    },
-    {
-        description: 'red balloon'
-    },
-    {
-        description: 'yellow candles'
-    },
-    {
-        description: 'blue confetti'
-    }
-]
+# # 6. Return all decorations with blue in their description
 
-blue_decorations = ???
+# decorations = [
+#     {
+#         description: 'Blue birthday hat'
+#     },
+#     {
+#         description: 'red balloon'
+#     },
+#     {
+#         description: 'yellow candles'
+#     },
+#     {
+#         description: 'blue confetti'
+#     }
+# ]
+
+# blue_decorations = ???

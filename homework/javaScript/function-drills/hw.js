@@ -11,7 +11,7 @@
 // Output: the sum of the numbers that were passed in
 // Edge Case: If the array is empty, return 0
 var sumOfNums = function(numsArray){
-   var sum = 1;
+   var sum = 0;
    for (var i = 0; i < numsArray.length; i++) {
      sum += numsArray[i];
    }
@@ -23,7 +23,13 @@ var sumOfNums = function(numsArray){
 // Output: an array of the numbers from the first array that are strictly
 //         greater (i.e. greater than but not equal to) than 10
 var numsGreaterThanTen = function(numsArray){
-  // Your Code Here
+  var numbersGreaterThanTen = []
+  for (var i = 0; i < numsArray.length; i++) { 
+    if (numsArray[i] > 10) {
+      numbersGreaterThanTen.push(numsArray[i]);
+    }
+  }
+  return numbersGreaterThanTen
 };
 
 // #3

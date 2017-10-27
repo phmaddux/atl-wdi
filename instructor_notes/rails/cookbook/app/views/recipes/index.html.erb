@@ -1,0 +1,16 @@
+<h1>Hello world!</h1>
+<h1>First Rails App!</h1>
+
+<% @recipes.each do |recipe| %>
+  <ul>
+    <lh><%= recipe.title %></lh>
+    <li><%= recipe.description %></li>
+    <li><%= recipe.made_it_yet %></li>
+  </ul>
+<% end %>
+
+<h3> <%= @new_info%> </h3>
+
+        <% 5.times do |x| %>
+            <p>I was created by Ruby</p>
+        <% end %>

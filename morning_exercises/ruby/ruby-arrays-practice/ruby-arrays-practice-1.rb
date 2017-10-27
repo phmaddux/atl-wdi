@@ -18,6 +18,7 @@ people = [
         last_name: 'Woodruff',
     )
 ]
+# Get an array of people
 
 upper_case_full_names = people.map do |person|
     full_name = "#{person.first_name} #{person.last_name}"
