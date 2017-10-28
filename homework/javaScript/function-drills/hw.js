@@ -172,9 +172,6 @@ var buildObjectFromWords = function (words) {
 };
 // I don't know how to do this...
 
-
-
-
 /// DO NOT EDIT BELOW THIS LINE ///
 module.exports = {
   sumOfNums: sumOfNums,
