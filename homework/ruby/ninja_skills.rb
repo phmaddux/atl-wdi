@@ -72,3 +72,19 @@ myFirstArray[2] = 3
 myFirstArray.push("true")
 puts myFirstArray[3].class
 
+puts "---------------------"
+# Hashses
+myFavoriteAnimals = {
+    "Edgar" => "Donkey",
+    "John" => "Dragon",
+    "Nilla" => "Cat",
+    "Hunter" => "Human",
+    "Heather" => "Flamingo"
+}
+myFavoriteAnimals["Edgar"] = "Bear"
+favoriteMovie = {}
+favoriteMovie["Movie"] = "Die Hard"
+puts favoriteMovie
+
+
+
