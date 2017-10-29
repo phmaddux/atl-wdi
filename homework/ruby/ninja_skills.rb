@@ -102,7 +102,3 @@ while x < 50
     print secondRange[x]
     x = x + 1 
 end
-
-
-
-
