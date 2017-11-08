@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
-import styled, {keyframes} from 'styled-components'
-import {fadeOut} from 'react-animations'
+import styled, { keyframes } from 'styled-components'
+import { fadeOut } from 'react-animations'
 
 const fadeOutAnimation = keyframes`${fadeOut}`
 
@@ -16,8 +16,8 @@ const PostWrapper = styled.div`
     text-align: center;
     background: white;
     animation: ${props => {
-    return props.fadeOut ? `${props.fadeOutTime}ms ${fadeOutAnimation}` : null
-}}
+        return props.fadeOut ? `${props.fadeOutTime}ms ${fadeOutAnimation}` : null
+    }}
     
 `
 
@@ -52,31 +52,30 @@ class Post extends Component {
         fadeOut: false,
         fadeOutTime: 150
     }
-
     deletePost = async () => {
-        await this.setState({fadeOut: true})
+        await this.setState({ fadeOut: true })
         await setTimeout(
-            () => {this.props.deletePost(this.props.id)},
+            () => { this.props.deletePost(this.props.id) },
             this.state.fadeOutTime * .25
         )
     }
 
     render() {
         return (
-                <PostWrapper fadeOut={this.state.fadeOut} fadeOutTime={this.state.fadeOutTime}>
+            <PostWrapper fadeOut={this.state.fadeOut} fadeOutTime={this.state.fadeOutTime}>
 
-                    <div><h2>{this.props.title}</h2></div>
-                    <div>{this.props.content}</div>
-                    <PostOptions>
-                        <OptionButton onClick={this.deletePost}>
-                            <i className="fa fa-trash-o" aria-hidden="true"></i>
-                        </OptionButton>
-                        <OptionButton>
-                            <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
-                        </OptionButton>
-                    </PostOptions>
+                <div><h2>{this.props.title}</h2></div>
+                <div>{this.props.content}</div>
+                <PostOptions>
+                    <OptionButton onClick={this.deletePost}>
+                        <i className="fa fa-trash-o" aria-hidden="true"></i>
+                    </OptionButton>
+                    <OptionButton onClick={this.editPost}>
+                        <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </OptionButton>
+                </PostOptions>
 
-                </PostWrapper>
+            </PostWrapper>
         )
     }
 
