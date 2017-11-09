@@ -7,7 +7,7 @@
 // Data Management and Business Logic //
 const CounterCollection = {
   lastCountId: 0,
-  counters: [], // e.g. {countId: 3, count: 20}
+  counters: [],
   createCounter: function(){
     this.lastCountId++;
     this.counters.push({
@@ -39,7 +39,7 @@ const CounterCollection = {
       return counter.countId === countId;
     });
     if (counter) { counter.destroy(); }
-    this.counters = this.counters.filter(function(counter){ //
+    this.counters = this.counters.filter(function(counter){
       return counter.countId !== countId
     });
   }
@@ -49,11 +49,19 @@ const CounterCollection = {
 const Presenter = {
   insertCounterComponent: function(newCountId){
     console.log(`insert counter component #${newCountId}`);
-    // Your Code Here
-  },
+    var newCounterComponent = document.createElement('div');
+    newCounterComponent.innerhtml =
+    `<h3>Count: <span>0</span></h3><button class="increment">+1</button><button class="delete"> Delte </button>`;
+    newCounterComponent.className += 'counter';
+    newCounterComponent.dataset.countId = newCountId;
+    newCounterComponent.getElementsByClassName('increment')[0].onClick = AppController.onClickIncrement;
+    newCounterComponent.getElementsByClassName('delete')[0].onClick = AppController.onClickDelete;
+    document.getElementById('counter-list').appendChild(newCounterComponent);
+},
   refreshCounterComponent: function(countId){
     console.log(`refresh counter component #${countId}`);
-    // Your Code Here
+    var val = CounterCollection.getCounterValue(countId);
+    document.querySelector(`[data-count-id="${countId}"] span`).innerHTML = val;
   },
   removeCounterComponent: function(countId){             // REACH
     console.log(`remove counter component #${countId}`);
@@ -64,10 +72,14 @@ const Presenter = {
 // Top-Level Application Control //
 const AppController = {
   onClickNewCounter: function(event){
-    // Your Code Here
+    CounterCollection.createCounter();
+    Presenter.insertCounterComponent(CounterCollection.lastCountId);
   },
-  onClickIncrement: function(event){
-    // Your Code Here
+    onClickIncrement: function(event){
+    let countId = Number(event.target.parentNode.dataset.countId);
+    console.log(`click increment #${countId}`);
+    CounterCollection.incrementCounter(countId);
+    Presenter.refreshCounterComponent(countId);
   },
   onClickDelete: function(event){                           // REACH
     // Your Code Here
@@ -77,3 +89,6 @@ const AppController = {
 window.onload = function(){
   document.getElementById('new-counter').onclick = AppController.onClickNewCounter;
 };
+
+
+// I keep getting errors on 57 and 76 I give up

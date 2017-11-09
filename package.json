@@ -19,6 +19,7 @@
   "homepage": "https://github.com/phmaddux/atl-wdi#readme",
   "dependencies": {
     "express": "^4.15.5",
+    "materialize-css": "^0.100.2",
     "mongoose": "^4.11.13"
   }
 }
