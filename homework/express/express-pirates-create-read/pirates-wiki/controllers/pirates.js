@@ -1,42 +1,36 @@
-//requirements
-var express = require("express");
-var router = express.Router();
-var data = require('../models/pirates.js');
 
-// Index Pirates
-router.get("/index", (req, res) => {
-    res.render("pirates/index", {
-        pirates: pirates.allPirates
-    })
-});
+const express = require("express");
+const router = express.Router();
+const pirates = require('../models/pirates.js');
 
-// New Pirates
-router.get('/new', (req,res) => {
-    res.render('pirates/new');
-});
-
-// Show Pirates
-router.get('/:id', (req,res) => {
+//Index
+router.get("/", (req, res) => {
     const id = parseInt(req.params.id);
-    const pirates = data.allPirates[id];
     console.log(pirates);
+    res.render("pirates/index", {
+        pirates: pirates
+    });
+});
+//New
+router.get("/new", (req, res) => {
+    res.render("pirates/new");
+})
+//Show
+router.get("/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    const pirate = pirates[id];
+    res.render("pirates/show", {
+        pirate: pirate
+    });
 
-    if (!pirates){
-        res.render('pirates/show', {
-            error: "No pirate found with this ID"
-        })
-    } else {
-        res.render('pirates/show', {pirates})
-    }
+})
+
+// Post
+router.post("/", (req, res) => {
+    console.log(req.body);
+    const newPirate = req.body;
+    pirates.push(newPirate);
+    res.redirect('/pirates')
 });
 
-// Post Pirates
-router.post('/', (req, res) => {
-    console.log(req.body)
-    const newPirates = req.body;
-    data.allPirates.push(newTodo);
-    res.redirect('/pirates/index');
-});
-
-//exports
-module.exports = router
+module.exports = router;

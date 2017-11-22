@@ -1,20 +1,23 @@
-var express = require('express');
-var hbs = require('hbs');
+const express     = require('express');
+const hbs  = require('hbs');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+const app  = express();
 
-var app = express();
-var port = process.env.PORT || 3000;
-const pirateController = require("./controllers/pirates")
+var pirateController = require('./controllers/pirates.js');
 
+const PORT = process.env.PORT || 3000;
+app.use(methodOverride('_method'));
 
-/*Views*/
+app.use(bodyParser.urlencoded({
+    extended: true
+  }));
 app.set('view engine', 'hbs');
 
-/* Controllers*/ 
-//var pirateController = require('./controllers/pirates.js');
+app.use(express.static(__dirname + '/public'));
+
 app.use("/pirates", pirateController);
 
-
-
-app.listen(port, function() {
-    console.info('Server UP, Port ' + port + ' is ready.', new Date());
-})
+app.listen(PORT, () => {
+    console.info('Server running on', PORT);
+});
