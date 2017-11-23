@@ -30,29 +30,50 @@ entities/abstractions (e.g. Senior Paws app, above) that the app might use, and 
 This app provides easy access to all your e-mail service providers in one app. The app will let you select one of your email addresses and view your e-mails for that address.
 
 ```
-const User = ({
-    Name: String,
-    Password: String
-    UserId: String,
-    EmailServices; {
-        type: String,
-        required: true
+const userSchema = new Schema ({
+    username: {
+      type: String,
+      required: true
     },
-    Username: {
-        type: String,
-        required: true,
+    password: { 
+      type: String,
+      rewuired: true
     },
-    Password: {
-      type: string,
+    emailServices; {
+      type: String,
       required: true
     }
-    Emails:
-})
-const email =
-  {
-    email: 
-  }
+    Emails: [emailSchema]
 
+})
+const emailSchema = newSchema ({
+  from: {
+    type: String,
+    required: true    
+  },
+  to: {
+    type: String,
+    required: true
+  },
+  body: {
+    type: String,
+  },
+  subject: {
+    type: String,
+  }
+})
+
+providerSchema = new Schema ({
+  serviceProvider: {
+    type: String,
+    required: true
+  },
+  address: {
+    type: String,
+    required: true
+  }
+  user: [userSchema]
+})
 
 ```
 
@@ -82,6 +103,53 @@ Playlists:
 Songs:
 Genre:
 
+const stationSchema = new Schema ({
+  name: {
+    type: String,
+    required: true
+  },
+  genre: {
+    type: String,
+    required: true
+  },
+  totalHoursListenedToLastWeek: {
+    type: number,
+    required: true
+  },
+  playlists: [playlistSchema]
+})
+
+const playlistSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  totalHoursListenedToLastWeek: {
+    type: number,
+    required: true
+  },
+  songs: [songSchema]
+})
+
+const SongSchema = new Schema({
+  name:{
+    type: String,
+    required: true
+  }
+  genre:{
+    type: String,
+    required: true
+  },
+  length:{
+    type: number,
+    required: true
+  },
+timesSkipped:{
+  type: number
+  } 
+})
+
+
 ```
 
 ### 3. Rock Concert App
@@ -89,19 +157,163 @@ Genre:
 This app will be a tool for managing all of your favorite bands' concerts; it will keep track of their tour dates, ticket purchasing, and next recommended show.
 
 ```
-Write your answer here or in a separate js file.
+const userSchema = new Schema ({
+  name: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  bands: [bandSchema]
+})
+
+const bandSchema = new Schema({
+  name:{
+    type: String,
+    required: true
+  },
+  genre: {
+    type: String,
+  },
+  shows: [tourSchema]
+})
+
+const tourSchema = new Schema ({
+  location: {
+    type: String,
+    required: true
+  },
+  venue: {
+    type: String,
+    required: true
+  },
+  address: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: number,
+    required: true
+  },
+  retailer: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  }
+})
 ```
 
 ### 4. Coffee To-Go App
 
 This app will allow customers to browse a list of coffeeshops nearby, order drinks off of their menu, add those drinks to a shopping cart, and save that cart as a past order once the purchase is complete.
 
+```
+const userSchema = new Schema({
+  username: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  shop: [SHopSchema],
+  pastOrders: [OrderSchema]
+})
+const ShopSchema = new Schema({
+  shopId: {
+    type: String,
+    required: true
+  }
+  name: {
+    type: String,
+    required: true
+  },
+  address: {
+    type: String,
+    required: true
+  },
+  menu: [ItemSchema]
+})
+const OrderSchema = new Schema({
+  orderId: {
+    type: String,
+    required: true
+  },
+  item: [ItemSchema],
+  shop: [ShopeSchema],
+  total: {
+    type: number,
+    required: true
+  }
+})
+const ItemSchema = new Schema({
+  itemName: {
+    type: String,
+    required: true
+  },
+  ingredients: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  }
+})
+
+```
+
 ### 5. Team Tracker App
 
 This app shows you all the latest stats from your favorite sports teams. You can view individual player stats and full team stats.
 
 ```
-Write your answer here or in a separate js file.
+const StatSchema = new Schema({
+  name: {
+      type: String,
+      required: true
+  },
+  stats: {
+      type: String,
+      required: true
+  }
+})
+const PlayerSchema = new Schema({
+  name: {
+      type: String,
+      required: true
+  },
+  team: {
+      type: String,
+      required: true
+  },
+  playerStats: [StatSchema]
+})
+const TeamsSchema = new Schema({
+  name: {
+      type: String,
+      required: true
+  },
+  players: [PlayerSchema],
+  teamStats: [StatSchema]
+})
+const userSchema = new Schema({
+  name: {
+  type: String,
+      required: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
+  teams: [TeamsSchema]
+})
 ```
 
 
