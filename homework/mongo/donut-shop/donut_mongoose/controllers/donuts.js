@@ -31,9 +31,9 @@ router.get('/new', (req,res) => {
 // SHOW
 //======================
 router.get("/:id", (req, res) => {
-    const donutId = req.params.donutId
+    const donutId = req.params.id
 
-    Donut.DonutModel.findById(donutId)
+    DonutModel.findById(donutId)
         .then((donut) => {
             res.render('donuts/show', {
                 donut
