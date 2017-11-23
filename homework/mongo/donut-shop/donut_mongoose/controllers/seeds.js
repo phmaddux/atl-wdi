@@ -7,6 +7,7 @@ var router = express.Router();
 var mongoose = require("mongoose");
 var Donut = require("../models/donuts.js");
 
+const DonutModel = Donut.DonutModel
 
 router.get('/donuts', function(req, res) {
 
@@ -39,10 +40,10 @@ router.get('/donuts', function(req, res) {
 	];
 
 
-  Donut.create(newDonuts, function(err) {
+    DonutModel.create(newDonuts, function(err) {
         console.log("SEED: NEW PRODUCTS CREATED!");
         res.redirect('/');
-  });
+    });
 
 });
 

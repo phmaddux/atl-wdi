@@ -1,18 +1,22 @@
 <main>
-
-	<h2>EDIT THIS DONUT!</h2>
-
+	<h2>Edit the donut!</h2>
 	<a href="/">Return to Home Page</a>
-
 	<div id="edit-form" class="donut-container-show">
-
-
-		<<<<< YOUR WHOLE FORM GOES HERE >>>>>
-
-
+		<form action="/{{donut._id}}?_method=PUT" method="POST">
+			<label> Name: </label>
+			<input type="text" name="name" value="{{donut.name}}">
+			<label> Description: </label>
+			<input type="text" name="description" value="{{donut.description}}">
+			<label> Image: </label>
+			<input type="text" name="img" value="{{donut.img}}">
+			<label> Price: </label>
+			<input type="number" name="price" value="{{donut.price}}">
+			<label> Qunatity: </label>
+			<input type="number" name="qty" value="{{donut.qty}}">
+			<button type="submit">Create</button>
+		</form>
 		<div id="img-preview">
 			<img src="{{donut.img}}">
 		</div>
-
 	</div>
 </main>
