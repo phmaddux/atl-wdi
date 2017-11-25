@@ -1,12 +1,17 @@
 <h1>{{pirate.name}}</h1>
 <h2>Pirate Show Page</h2>
 
-<ul class="pirate-show">
-  <li>Name: {{pirate.name}}</li>
+<ul>
   <li>Birthplace: {{pirate.birthplace}}</li>
   <li>Year of Death: {{pirate.death_year}}</li>
-  <li>Based in: {{pirate.base}}</li>
+  <li>Base: {{pirate.base}}</li>
   <li>Nickname: {{pirate.nickname}}</li>
 </ul>
-
-  <a href="/pirates">Back Home</a>
+<div>
+  <a href="/pirates/{{id}}/edit">Edit</a>
+</div>
+<form action="/pirates/{{id}}?_method=DELETE" method="POST">
+  <input type="submit" value="Delete" />
+</form>
+<a href="/pirates">Back to the Pirate Index</a>
+</div>

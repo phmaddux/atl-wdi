@@ -1,37 +1,22 @@
-//===========================
-// REQUIREMENTS
-//===========================
-var express = require("express");
-var app = express();
-var logger = require("morgan");
-var bodyParser = require("body-parser");
-var hbs = require('hbs');
+const express = require('express');
+const app = express();
+const hbs = require('hbs');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 
-//===========================
-// MIDDLEWARE
-//===========================
-//this is for morgan
-app.use(logger("dev"));
-//these are for bodyParser
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-//set handlebars as view engine
-app.set("view engine", "hbs");
-app.set('views', './views');
+app.set('view engine', 'hbs');
+app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(express.static(__dirname + '/public'));
 
-//===========================
-// CONTROLLERS
-//===========================
+const pirateController = require('./controllers/pirates.js');
 
-//controllers for `/pirates` resource
-var pirateController = require('./controllers/pirates.js');
 app.use("/pirates", pirateController);
+app.use('/pirates', piratesController);
 
-
-//===========================
-// LISTENERS
-//===========================
-app.listen(3000, function(req, res){
-	console.log("listening");
-});
+app.listen(PORT, () => {
+   console.log("Working on on port..." + PORT)
+})
